@@ -1,13 +1,11 @@
 import { MapPin } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function DoctorCard({ doc }) {
 
     return (
         <div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
             className="group rounded-xl overflow-hidden border border-gray-200 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/60 hover:border-primary/40 bg-surface"
         >
             <div className="relative w-full h-56 overflow-hidden">
@@ -34,7 +32,7 @@ export default function DoctorCard({ doc }) {
                 </h3>
 
                 <div className="flex flex-col gap-3">
-                    <div className="flex items-center justify-between">
+                    <div className="flex-between">
                         <p className="text-[11.5px] text-primary font-bold">
                             {doc.hospital}
                         </p>
@@ -63,9 +61,11 @@ export default function DoctorCard({ doc }) {
                     {doc.description}
                 </p>
 
-                <button className="w-full cursor-pointer mt-1 py-2 text-[12px] font-semibold tracking-wide rounded-full border border-primary/30 text-primary bg-primary/5 hover:bg-primary/20 hover:border-primary/50 transition-all duration-300">
-                    See Details
-                </button>
+                <Link href={`/all-appointments/${doc._id}`}>
+                    <button className="w-full cursor-pointer mt-1 py-2 text-[12px] font-semibold tracking-wide rounded-full border border-primary/30 text-primary bg-primary/5 hover:bg-primary/20 hover:border-primary/50 transition-all duration-300">
+                        See Details
+                    </button>
+                </Link>
             </div>
         </div>
     );

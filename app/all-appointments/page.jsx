@@ -29,7 +29,7 @@ const AllAppointments = async ({ searchParams }) => {
                     </p>
                 </div>
 
-                <SearchField></SearchField>
+                <SearchField searchValue={searchValue}></SearchField>
 
                 <div>
                     {

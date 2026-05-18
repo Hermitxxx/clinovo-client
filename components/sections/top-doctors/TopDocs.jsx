@@ -9,7 +9,7 @@ const TopDocs = async () => {
 
     return (
         <section>
-            <div className="section-heading flex items-center justify-between">
+            <div className="section-heading  flex items-center justify-between">
                 <h2>
                     Top Rated Doctors
                 </h2>

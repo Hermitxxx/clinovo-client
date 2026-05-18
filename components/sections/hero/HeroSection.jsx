@@ -6,7 +6,7 @@ import SecondaryButton from '@/components/ui/btn/SecondaryButton';
 
 const HeroSection = () => {
     return (
-        <section className='bg-bg-primary flex max-lg:flex-col max-lg:gap-10 gap-16 lg:gap-20 justify-between min-h-[calc(100vh-12rem)] rounded-lg max-lg:min-h-0 items-center overflow-hidden px-6 py-10 md:p-12'>
+        <section className='bg-bg-primary/40 border flex max-lg:flex-col max-lg:gap-10 gap-16 lg:gap-20 justify-between min-h-[calc(100vh-12rem)] rounded-lg max-lg:min-h-0 items-center overflow-hidden px-6 py-10 md:p-12'>
             <div className="intro space-y-7 sm:space-y-8 max-w-xl">
                 <h1 className='leading-16 max-sm:text-5xl max-sm:leading-tight'>
                     <span className='text-accent'>Doctor</span> <br />
