@@ -48,6 +48,10 @@
   .card {
     @apply bg-bg-secondary rounded-md shadow-md p-4;
   }
+
+  .search-style {
+    @apply w-full rounded-full border border-accent focus:border-accent py-2.5 pl-10 pr-4 text-sm caret-accent focus:placeholder:text-accent placeholder:text-accent focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-accent
+  }
 }
 
 @utility flex-center {
