@@ -52,6 +52,14 @@
   .search-style {
     @apply w-full rounded-full border border-accent focus:border-accent py-2.5 pl-10 pr-4 text-sm caret-accent focus:placeholder:text-accent placeholder:text-accent focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-accent
   }
+
+  .btn-outline {
+    @apply border-primary text-primary;
+  }
+
+  .btn-primary {
+    @apply whitespace-nowrap rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-primary/90 sm:text-base cursor-pointer;
+  }
 }
 
 @utility flex-center {

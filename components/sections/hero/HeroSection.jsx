@@ -19,7 +19,7 @@ const HeroSection = () => {
 
                 <div className="cta flex flex-wrap items-center gap-4">
                     <Link href={`/register`}>
-                        <button className='whitespace-nowrap rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-primary/90 sm:text-base'>
+                        <button className='btn-primary'>
                             Consult Now
                         </button>
                     </Link>

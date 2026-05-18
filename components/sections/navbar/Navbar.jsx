@@ -1,14 +1,35 @@
 'use client'
 import React, { useState } from 'react';
 import Link from 'next/link';
-import PrimaryButton from '../../ui/btn/PrimaryButton';
-import BtnOutline from '../../ui/btn/BtnOutline';
 import NavLink from './NavLink';
 import Image from 'next/image';
 import logo from '@/public/assets/logo.svg'
+import { Avatar, Button } from '@heroui/react';
+import { authClient } from '@/lib/auth-client';
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false)
+    const router = useRouter()
+
+    async function handleLogout() {
+        await authClient.signOut({
+            fetchOptions: {
+                onSuccess: () => {
+                    router.push("/login"); // redirect to login page
+                },
+            },
+        });
+    }
+
+    const {
+        data: session,
+        isPending, //loading state
+        error, //error object
+        refetch //refetch the session
+    } = authClient.useSession()
+
+    console.log(session);
     return (
         <header className='sticky top-0 z-1000 w-full bg-bg-secondary/10 border-b border-gray-200 backdrop-blur-sm'>
             <nav className='navbar w-11/12 mx-auto flex-between py-4 bg-bg-secondary/70 backdrop-blur-sm'>
@@ -33,20 +54,26 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <div className="button flex-center gap-1">
-                    <Link href={`/register`} className='hidden md:flex'>
-                        <PrimaryButton>
-                            <button>
-                                Register
-                            </button>
-                        </PrimaryButton>
-                    </Link>
+                <div className="button flex-center gap-2">
+                    {
+                        session ?
+                            <>
+                                <Avatar>
+                                    <Avatar.Image alt="John Doe" src={session?.image ? `${session?.image}` : 'https://robohash.org/utquibusdamquod.png?size=250x250&set=set1'} />
+                                    <Avatar.Fallback>JD</Avatar.Fallback>
+                                </Avatar>
+                                <Button onClick={handleLogout} variant='danger'>Logout</Button>
+                            </> :
+                            <>
+                                <Link href={`/register`} className='hidden md:flex'>
+                                    <Button>Register</Button>
+                                </Link>
 
-                    <Link href={`/login`} className='hidden md:flex'>
-                        <BtnOutline>
-                            <button className="btn">Login</button>
-                        </BtnOutline>
-                    </Link>
+                                <Link href={`/login`} className='hidden md:flex'>
+                                    <Button className={`btn-outline`} variant='outline'>Login</Button>
+                                </Link>
+                            </>
+                    }
 
                     <button
                         className="md:hidden cursor-pointer flex flex-col justify-center items-center gap-1.5 w-8 h-8"
@@ -70,25 +97,15 @@ const Navbar = () => {
                         </ul>
                         <div className="flex items-center gap-3">
                             <>
-                                <PrimaryButton>
-                                    <Link href={"/register"} onClick={() => setMenuOpen(false)}>
-                                        <PrimaryButton>
-                                            <button>
-                                                Register
-                                            </button>
-                                        </PrimaryButton>
-                                    </Link>
-                                </PrimaryButton>
-                                <BtnOutline className='btn-slite-primary'>
-                                    <Link href={"/login"} onClick={() => setMenuOpen(false)}>
-                                        <BtnOutline>
-                                            <button className="btn">Login</button>
-                                        </BtnOutline>
-                                    </Link>
-                                </BtnOutline>
+                                <Link href={"/register"} onClick={() => setMenuOpen(false)}>
+                                    <Button>Register</Button>
+                                </Link>
+                                <Link href={"/login"} onClick={() => setMenuOpen(false)}>
+                                    <Button className={`btn-outline`} variant='outline'>Login</Button>
+                                </Link>
                             </>
                         </div>
-                    </div>
+                    </div >
                 )
             }
         </header >

@@ -1,5 +1,9 @@
+
+import { BookingModal } from '@/components/modal/BookingModal';
 import { getAptById } from '@/lib/data';
+import { Button } from '@heroui/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const DoctorDetails = async ({ params }) => {
@@ -64,21 +68,24 @@ const DoctorDetails = async ({ params }) => {
                             ))}
                         </div>
 
-                        {availability.length > 0 ? (
-                            <div className="rounded-lg border border-primary/15 bg-bg-primary px-4 py-3">
-                                <p className="text-[11px] uppercase tracking-wider text-text">Availability</p>
-                                <div className="mt-2 flex flex-wrap gap-2">
-                                    {availability.map((time) => (
-                                        <span
-                                            key={time}
-                                            className="rounded-full border border-primary/20 bg-bg-secondary px-3 py-1 text-xs font-medium text-accent"
-                                        >
-                                            {time}
-                                        </span>
-                                    ))}
-                                </div>
+                        <div className="rounded-lg border border-primary/15 bg-bg-primary px-4 py-3">
+                            <p className="text-[11px] uppercase tracking-wider text-text">Availability</p>
+                            <div className="mt-2 flex flex-wrap gap-2">
+                                {availability.map((time) => (
+                                    <span
+                                        key={time}
+                                        className="rounded-full border border-primary/20 bg-bg-secondary px-3 py-1 text-xs font-medium text-accent"
+                                    >
+                                        {time}
+                                    </span>
+                                ))}
                             </div>
-                        ) : null}
+                        </div>
+
+                        <Link href={`/all-appointments/${id}/book-apt`}>
+                            <Button className={`w-full font-bold`}>Book Appointment</Button>
+                        </Link>
+                        {/* <BookingModal></BookingModal> */}
                     </div>
                 </div>
             </div>

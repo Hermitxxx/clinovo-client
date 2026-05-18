@@ -1,8 +1,8 @@
 'use client'
 import React from 'react';
-import BtnOutline from './btn/BtnOutline';
 import { Search } from 'lucide-react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { Button } from '@heroui/react';
 
 const SearchField = ({ searchValue }) => {
     const router = useRouter()
@@ -38,11 +38,10 @@ const SearchField = ({ searchValue }) => {
             </div>
 
             <div>
-                <BtnOutline>
-                    <button onClick={updateParam} className="btn whitespace-nowrap tracking-tighter max-sm:text-xs font-thin max-sm:p-3 py-2.5">
-                        Search
-                    </button>
-                </BtnOutline>
+                <Button variant='outline' onClick={updateParam} className="btn-outline whitespace-nowrap tracking-tighter max-sm:text-xs font-thin max-sm:p-3 py-2.5">
+                    Search
+                </Button>
+
             </div>
         </div>
     );
