@@ -1,0 +1,162 @@
+[
+    {
+        "id": "d1",
+        "name": "Dr. James Carter",
+        "specialty": "Cardiologist",
+        "image": "https://media.istockphoto.com/id/912135044/photo/he-is-king-of-the-hospital.jpg?s=1024x1024&w=is&k=20&c=1i221torDS3Iv8e5gMb05-ff2LwfFP3DvdjmWUFxDEc=",
+        "experience": "10 years",
+        "availability": [
+            "09:00 AM - 12:00 PM",
+            "04:00 PM - 07:00 PM"
+        ],
+        "description": "Experienced cardiologist specializing in heart diseases, preventive care, and hypertension management.",
+        "hospital": "St. Thomas Heart Center",
+        "location": "Chelsea, London",
+        "fee": 800,
+        "rating": 4.7
+    },
+    {
+        "id": "d2",
+        "name": "Dr. Michael Reed",
+        "specialty": "Neurologist",
+        "image": "https://media.istockphoto.com/id/2257396048/photo/young-doctor.jpg?s=1024x1024&w=is&k=20&c=7yk4wbdcjLPGMS8r2_y9h72ZbMupMZvO0lfgqMSBdE0=",
+        "experience": "8 years",
+        "availability": [
+            "10:00 AM - 01:00 PM",
+            "06:00 PM - 09:00 PM"
+        ],
+        "description": "Specialist in neurological disorders including migraines, epilepsy, and stroke rehabilitation.",
+        "hospital": "Riverside Neurology Clinic",
+        "location": "Camden, London",
+        "fee": 1000,
+        "rating": 4.6
+    },
+    {
+        "id": "d3",
+        "name": "Dr. Daniel Brooks",
+        "specialty": "Dermatologist",
+        "image": "https://media.istockphoto.com/id/1434687410/photo/portrait-of-happy-and-successful-african-american-doctor-man-working-inside-office-clinic.jpg?s=1024x1024&w=is&k=20&c=9AyJQ_Y0Dkzuxm4GrX6Mg44EM1CquxV_e11uhXrMCMo=",
+        "experience": "6 years",
+        "availability": [
+            "11:00 AM - 02:00 PM",
+            "05:00 PM - 08:00 PM"
+        ],
+        "description": "Provides advanced treatment for acne, eczema, skin allergies, and cosmetic skin care.",
+        "hospital": "Harborview Dermatology",
+        "location": "Ballard, Seattle",
+        "fee": 700,
+        "rating": 4.5
+    },
+    {
+        "id": "d4",
+        "name": "Dr. Thomas Blake",
+        "specialty": "Orthopedic Surgeon",
+        "image": "https://media.istockphoto.com/id/1390000431/photo/shot-of-a-mature-doctor-using-a-digital-tablet-in-a-modern-hospital.jpg?s=1024x1024&w=is&k=20&c=S0QE85ASQSpAKKrKhsC1NllJuJSpaDsv6rrHK0w_a40=",
+        "experience": "12 years",
+        "availability": [
+            "08:00 AM - 11:00 AM",
+            "03:00 PM - 06:00 PM"
+        ],
+        "description": "Expert in bone fractures, joint replacement surgeries, and sports injury treatments.",
+        "hospital": "Summit Orthopedic Institute",
+        "location": "Cherry Creek, Denver",
+        "fee": 1200,
+        "rating": 4.8
+    },
+    {
+        "id": "d5",
+        "name": "Dr. Peter Collins",
+        "specialty": "Pediatrician",
+        "image": "https://media.istockphoto.com/id/2211466885/photo/friendly-doctor-smiling-at-the-camera-while-holding-a-tablet-in-a-modern-office.jpg?s=1024x1024&w=is&k=20&c=4xQghqP1Kd92q4TEohpjxgRsqWEdF0nWuYZuM4WwC4k=",
+        "experience": "9 years",
+        "availability": [
+            "09:30 AM - 12:30 PM",
+            "04:30 PM - 07:30 PM"
+        ],
+        "description": "Dedicated child specialist focused on pediatric healthcare, nutrition, and vaccinations.",
+        "hospital": "Greenwood Children's Clinic",
+        "location": "Fitzrovia, London",
+        "fee": 600,
+        "rating": 4.4
+    },
+    {
+        "id": "d6",
+        "name": "Dr. Andrew Hayes",
+        "specialty": "ENT Specialist",
+        "image": "https://media.istockphoto.com/id/2236117031/photo/a-friendly-and-welcoming-doctor-ready-to-help-with-his-tablet-and-stethoscope-smiling-widely.jpg?s=1024x1024&w=is&k=20&c=Pz9Oj21cQrGcIFHGjbonDjxolzt5uyL1BzxTtYjSdV0=",
+        "experience": "7 years",
+        "availability": [
+            "10:00 AM - 01:00 PM",
+            "05:00 PM - 08:00 PM"
+        ],
+        "description": "Treats ear, nose, and throat disorders with modern diagnostic and surgical techniques.",
+        "hospital": "Westbrook ENT Center",
+        "location": "SoHo, New York",
+        "fee": 750,
+        "rating": 4.5
+    },
+    {
+        "id": "d7",
+        "name": "Dr. Richard Palmer",
+        "specialty": "Psychiatrist",
+        "image": "https://media.istockphoto.com/id/2261130077/photo/doctor-in-uniform-posing-for-camera-with-digital-tablet.jpg?s=1024x1024&w=is&k=20&c=xnXBl4wIZzm6RSZj3zqUdOJuSKrqUkxAxiyMcO3a5Wk=",
+        "experience": "11 years",
+        "availability": [
+            "02:00 PM - 05:00 PM",
+            "07:00 PM - 09:00 PM"
+        ],
+        "description": "Provides mental health counseling and treatment for anxiety, depression, and stress disorders.",
+        "hospital": "Harbor Mental Health",
+        "location": "Pacific Heights, San Francisco",
+        "fee": 1500,
+        "rating": 4.9
+    },
+    {
+        "id": "d8",
+        "name": "Dr. William Foster",
+        "specialty": "Gynecologist",
+        "image": "https://media.istockphoto.com/id/2148438404/photo/confident-male-doctor-smiling-with-tablet-in-hospital.jpg?s=1024x1024&w=is&k=20&c=1loU01I6uFiu0EiEgEZQTIM3kvdIzV_wT9o_vOGJzdc=",
+        "experience": "13 years",
+        "availability": [
+            "09:00 AM - 01:00 PM",
+            "05:00 PM - 08:00 PM"
+        ],
+        "description": "Experienced in women's reproductive health, pregnancy care, and fertility treatment.",
+        "hospital": "Rosewood Women's Health",
+        "location": "Kensington, London",
+        "fee": 1100,
+        "rating": 4.7
+    },
+    {
+        "id": "d9",
+        "name": "Dr. Robert Lane",
+        "specialty": "Endocrinologist",
+        "image": "https://media.istockphoto.com/id/1442292374/photo/portrait-of-mature-and-experienced-doctor-man-in-medical-coat-and-glasses-looking-at-camera.jpg?s=1024x1024&w=is&k=20&c=YpFeOGCjcXBN6vflGImqZ7r41gOkmhB5Y4-DfCCf1ts=",
+        "experience": "10 years",
+        "availability": [
+            "08:30 AM - 11:30 AM",
+            "04:00 PM - 07:00 PM"
+        ],
+        "description": "Specializes in diabetes, thyroid disorders, hormonal imbalance, and metabolic diseases.",
+        "hospital": "Northgate Endocrine Clinic",
+        "location": "Midtown, Atlanta",
+        "fee": 950,
+        "rating": 4.6
+    },
+    {
+        "id": "d10",
+        "name": "Dr. David Parker",
+        "specialty": "General Physician",
+        "image": "https://media.istockphoto.com/id/2106744549/photo/confident-male-doctor-smiling-and-holding-a-tablet-in-modern-hospital-environment.jpg?s=1024x1024&w=is&k=20&c=RJn35ydXIm10Lm2d896qplv2GOLFNFUT-q1TPuPHv2U=",
+        "experience": "5 years",
+        "availability": [
+            "09:00 AM - 12:00 PM",
+            "06:00 PM - 09:00 PM"
+        ],
+        "description": "General healthcare expert providing diagnosis, treatment, and preventive medical consultation.",
+        "hospital": "Lakeside Medical Center",
+        "location": "Old Town, Chicago",
+        "fee": 500,
+        "rating": 4.3
+    }
+]
