@@ -45,6 +45,10 @@
     @apply space-y-4 mb-10 text-center;
   }
 
+  .section-heading-form {
+    @apply space-y-4 mb-8 text-start;
+  }
+
   .card {
     @apply bg-bg-secondary rounded-md shadow-md p-4;
   }

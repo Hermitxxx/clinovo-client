@@ -36,7 +36,7 @@ export default function Register() {
                     <TextField
                         isRequired
                         name="name"
-                        type="name"
+                        type="text"
                     >
                         <Label>Name</Label>
                         <Input placeholder="Jonh Doe" />
