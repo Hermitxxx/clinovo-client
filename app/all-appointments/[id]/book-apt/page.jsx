@@ -1,4 +1,5 @@
 
+import { postApt } from '@/lib/actions';
 import { auth } from '@/lib/auth';
 import { getAptById } from '@/lib/data';
 import { Button, FieldError, Form, Input, Label, TextArea, TextField } from '@heroui/react';
@@ -53,12 +54,14 @@ const BookApt = async ({ params }) => {
             patientEmail: userData?.email
         }
 
+        await postApt(bookingData)
+
         console.log(bookingData);
     }
     return (
         <>
             <section className=' min-h-[calc(100vh-30rem)]'>
-                <div className='flex flex-col flex-center w-xl mx-auto'>
+                <div className='flex flex-col flex-center w-11.5/12 sm:w-xl mx-auto'>
                     <div className="section-heading-form w-full mx-auto">
                         <h2>
                             Book An Appointment
@@ -112,7 +115,7 @@ const BookApt = async ({ params }) => {
 
                             <TextField isRequired name="time" type="time">
                                 <Label>Appointment Time</Label>
-                                <Input className="border border-gray-300/50" />
+                                <Input className="border border-gray-300/50 w-full" placeholder='Ex : 9:00 PM - 10 PM' />
                             </TextField>
 
                             <TextField isRequired name="date" type="date">

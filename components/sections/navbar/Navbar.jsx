@@ -31,8 +31,8 @@ const Navbar = () => {
 
     // console.log(session);
     return (
-        <header className='sticky top-0 z-1000 w-full bg-bg-secondary/10 border-b border-gray-200 backdrop-blur-sm'>
-            <nav className='navbar w-11/12 mx-auto flex-between py-4 bg-bg-secondary/70 backdrop-blur-sm'>
+        <header className='sticky top-0 z-1000 w-full bg-bg-secondary border-b border-gray-200'>
+            <nav className='navbar w-11/12 mx-auto flex-between py-4 bg-bg-secondary'>
                 <div className="logo flex-center gap-1">
                     <Image src={logo} width={44} height={44} alt='Clinovo'></Image>
                     <div>

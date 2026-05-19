@@ -9,12 +9,12 @@ const TopDocs = async () => {
 
     return (
         <section>
-            <div className="section-heading  flex items-center justify-between">
+            <div className="section-heading space-y-0 flex items-center justify-between">
                 <h2>
                     Top Rated Doctors
                 </h2>
 
-                <Link href={`all-appointments`}>
+                <Link href={`all-appointments`} className='inline-block'>
                     <button className="group px-2 flex items-center gap-1 cursor-pointer bg-transparent text-accent border-0">
                         <span>View all</span>
                         <ArrowRight className='w-4 h-4 transition-transform duration-300 group-hover:translate-x-1' size={16}></ArrowRight>
