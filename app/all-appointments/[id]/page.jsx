@@ -1,5 +1,5 @@
 
-import { BookingModal } from '@/components/modal/BookingModal';
+
 import { getAptById } from '@/lib/data';
 import { Button } from '@heroui/react';
 import Image from 'next/image';
@@ -85,7 +85,6 @@ const DoctorDetails = async ({ params }) => {
                         <Link href={`/all-appointments/${id}/book-apt`}>
                             <Button className={`w-full font-bold`}>Book Appointment</Button>
                         </Link>
-                        {/* <BookingModal></BookingModal> */}
                     </div>
                 </div>
             </div>

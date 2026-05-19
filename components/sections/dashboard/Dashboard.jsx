@@ -19,7 +19,7 @@ const DashboardPage = ({ bookings }) => {
 
             <div className="toggle-area mb-5">
                 <div className='rounded-full'>
-                    <Button onClick={() => setState('bookings')} variant={`${state === 'bookings' ? 'primary' : 'outline'}`} className={`rounded-none`}>My Bookings</Button>
+                    <Button onClick={() => setState('bookings')} variant={`${state === 'bookings' ? 'primary' : 'outline'}`} className={`rounded-none`}>My Appointments</Button>
                     <Button onClick={() => setState('profile')} variant={`${state === 'profile' ? 'primary' : 'outline'}`} className={`rounded-none`}>My Profile</Button>
                 </div>
             </div>
@@ -36,7 +36,7 @@ const DashboardPage = ({ bookings }) => {
                                 <div className='bookings-container min-h-[calc(100vh-12rem)]'>
                                     <div className='flex-between mb-5'>
                                         <h2>Bookings :</h2>
-                                        <p className='text-sm'>{bookings.length} Bookings</p>
+                                        <p className='text-sm'>{bookings.length} appointment</p>
                                     </div>
 
                                     <div className="user-bookings grid grid-cols-1 gap-4 md:grid-cols-3">

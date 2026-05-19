@@ -31,7 +31,7 @@ const Navbar = () => {
 
     // console.log(session);
     return (
-        <header className='sticky top-0 z-1000 w-full bg-bg-secondary border-b border-gray-200'>
+        <header className='sticky top-0 z-500 w-full bg-bg-secondary border-b border-gray-200'>
             <nav className='navbar w-11/12 mx-auto flex-between py-4 bg-bg-secondary'>
                 <div className="logo flex-center gap-1">
                     <Image src={logo} width={44} height={44} alt='Clinovo'></Image>
@@ -89,7 +89,7 @@ const Navbar = () => {
 
             {
                 menuOpen && (
-                    <div className="md:hidden w-full border-t border-gray-200 backdrop-blur-sm bg-bg-secondary/50 p-5 flex flex-col gap-4 text-sm">
+                    <div className="md:hidden z-500 w-full border-t border-gray-200 bg-bg-secondary p-5 flex flex-col gap-4 text-sm">
                         <ul className="flex flex-col gap-3">
                             <li><Link href={"/"} onClick={() => setMenuOpen(false)} className="nav-link">Home</Link></li>
                             <li><Link href={"/all-tiles"} onClick={() => setMenuOpen(false)} className="nav-link">All Appointments</Link></li>

@@ -11,7 +11,7 @@ const BookApt = async ({ params }) => {
 
     const apt = await getAptById(id)
 
-    const { name: docName, specialty } = apt
+    const { name: docName, specialty, fee } = apt
     // get users session
     const session = await auth.api.getSession({
         headers: await headers() // you need to pass the headers object.
@@ -34,7 +34,8 @@ const BookApt = async ({ params }) => {
             aptDate: userData?.date,
             patientPhone: userData?.phone,
             reason: userData?.reason,
-            patientEmail: userData?.email
+            patientEmail: userData?.email,
+            bookingFee: fee
         }
 
         await postApt(bookingData)
@@ -111,7 +112,7 @@ const BookApt = async ({ params }) => {
                             <TextArea
                                 aria-label="Quick project update"
                                 className="h-32 w-full border border-gray-300/50"
-                                placeholder="Share a quick project update..."
+                                placeholder="Tell us about your present condition..."
                                 name='reason'
                             />
                             <Button type='submit' className={`w-full`}>Submit</Button>

@@ -2,6 +2,7 @@
 
 import { Button } from "@heroui/react";
 import { Pencil, Trash2 } from "lucide-react";
+import { EditModal } from "../modal/EditModal";
 
 export default function BookingCard({ booking }) {
     return (
@@ -34,16 +35,16 @@ export default function BookingCard({ booking }) {
             </div>
 
             {/* Buttons */}
-            <div className="mt-6 flex items-center justify-end gap-3">
-                <Button variant="outline">
-                    <Pencil size={16} />
-                    Edit
-                </Button>
+            <div className="mt-6 flex-between">
+                <p className="text-lg text-primary font-bold">$ {booking.bookingFee}</p>
+                <div className="flex items-center gap-2">
+                    <EditModal booking={booking}></EditModal>
 
-                <Button variant='danger'>
-                    <Trash2 size={16} />
-                    Delete
-                </Button>
+                    <Button variant='danger'>
+                        <Trash2 size={16} />
+                        Delete
+                    </Button>
+                </div>
             </div>
         </div>
     );
