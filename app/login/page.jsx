@@ -3,8 +3,8 @@ import React from 'react';
 import { Check } from "@gravity-ui/icons";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import { Icon } from '@iconify/react';
-import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
+import { authClient } from '../lib/auth-client';
 
 export default function Login() {
     async function onSubmit(e) {

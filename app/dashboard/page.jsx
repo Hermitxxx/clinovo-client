@@ -1,9 +1,10 @@
 
-import DashboardPage from '@/components/sections/dashboard/Dashboard';
-import { auth } from '@/lib/auth';
-import { getBookingByUserId } from '@/lib/data';
+// import DashboardPage from '@/components/sections/Dashboard.jsx/Dashboard';
+import DashboardPage from '@/components/sections/Dashboard.jsx/Dashboard';
 import { headers } from 'next/headers';
 import React from 'react';
+import { auth } from '../lib/auth';
+import { getBookingByUserId } from '../lib/data';
 
 const Dashboard = async () => {
     const session = await auth.api.getSession({
@@ -13,9 +14,9 @@ const Dashboard = async () => {
     const userId = session?.user?.id
 
     const bookings = await getBookingByUserId(userId)
-    console.log(bookings);
-    console.log(userId);
-    console.log(session);
+
+    console.log(bookings, ' bookings');
+
     return (
         <DashboardPage bookings={bookings}></DashboardPage>
     );

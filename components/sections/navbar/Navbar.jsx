@@ -5,8 +5,8 @@ import NavLink from './NavLink';
 import Image from 'next/image';
 import logo from '@/public/assets/logo.svg'
 import { Avatar, Button } from '@heroui/react';
-import { authClient } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
+import { authClient } from '@/app/lib/auth-client';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false)

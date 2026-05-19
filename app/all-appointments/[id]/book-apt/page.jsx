@@ -1,7 +1,7 @@
 
-import { postApt } from '@/lib/actions';
-import { auth } from '@/lib/auth';
-import { getAptById } from '@/lib/data';
+import { postApt } from '@/app/lib/actions';
+import { auth } from '@/app/lib/auth';
+import { getAptById } from '@/app/lib/data';
 import { Button, FieldError, Form, Input, Label, TextArea, TextField } from '@heroui/react';
 import { headers } from 'next/headers';
 import React from 'react';
@@ -40,7 +40,6 @@ const BookApt = async ({ params }) => {
 
         await postApt(bookingData)
 
-        console.log(bookingData);
     }
     return (
         <>

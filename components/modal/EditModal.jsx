@@ -1,13 +1,15 @@
-"use client";
 
+import { updateUserApt } from "@/app/lib/actions";
 import { Envelope, Rocket } from "@gravity-ui/icons";
 import { Button, FieldError, Input, Label, Modal, TextArea, TextField } from "@heroui/react";
 import { Edit, Form, Pencil } from "lucide-react";
+import { redirect } from "next/navigation";
 import { MdUpdate } from "react-icons/md";
 
 export function EditModal({ booking }) {
 
     const {
+        _id,
         bookingId,
         aptId,
         docName,
@@ -20,6 +22,14 @@ export function EditModal({ booking }) {
         patientEmail,
         bookingFee,
     } = booking;
+
+    console.log(_id);
+
+    async function onSubmit(formData) {
+        const updatedData = Object.fromEntries(formData.entries())
+        console.log(updatedData);
+        await updateUserApt(_id, updatedData)
+    }
 
     return (
         <div style={{ zIndex: 2000 }} className="flex flex-wrap gap-4">
@@ -40,10 +50,10 @@ export function EditModal({ booking }) {
                                 </Modal.Heading>
                             </Modal.Header>
                             <Modal.Body style={{ zIndex: 2000 }}>
-                                <form className='w-full mx-auto border p-2 sm:p-6 rounded-lg h-full'>
+                                <form action={onSubmit} className='w-full mx-auto border p-2 sm:p-6 rounded-lg h-full'>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                         <TextField
-                                            name="name"
+                                            name={'docName'}
                                             type="text"
                                             defaultValue={docName}
                                             isReadOnly
@@ -53,7 +63,7 @@ export function EditModal({ booking }) {
                                         </TextField>
 
                                         <TextField
-                                            name="appointment"
+                                            name={'speciality'}
                                             type="text"
                                             defaultValue={speciality}
                                             isReadOnly
@@ -65,7 +75,7 @@ export function EditModal({ booking }) {
                                         <TextField
                                             defaultValue={patientEmail}
                                             isRequired
-                                            name="email"
+                                            name={'patientEmail'}
                                             type="email"
                                         >
                                             <Label>User Email</Label>
@@ -76,14 +86,14 @@ export function EditModal({ booking }) {
                                         <TextField
                                             defaultValue={patientName}
                                             isRequired
-                                            name="patient-name"
+                                            name={'patientName'}
                                             type="text"
                                         >
                                             <Label>Patient Name</Label>
                                             <Input className="border border-gray-300/50" placeholder="John Doe" />
                                         </TextField>
 
-                                        <TextField name="phone"
+                                        <TextField name={'patientPhone'}
                                             defaultValue={patientPhone}
                                             isRequired type="tel">
                                             <Label>Phone</Label>
@@ -92,14 +102,16 @@ export function EditModal({ booking }) {
 
                                         <TextField isRequired
                                             defaultValue={aptTime}
-                                            name="time" type="time">
+                                            name={'aptTime'}
+                                            type="time">
                                             <Label>Appointment Time</Label>
                                             <Input className="border border-gray-300/50 w-full" placeholder='Ex : 9:00 PM - 10 PM' />
                                         </TextField>
 
                                         <TextField isRequired
                                             defaultValue={aptDate}
-                                            name="date" type="date">
+                                            name={'aptDate'}
+                                            type="date">
                                             <Label>Date</Label>
                                             <Input className="border border-gray-300/50" />
                                         </TextField>
@@ -111,7 +123,7 @@ export function EditModal({ booking }) {
                                             aria-label="Quick project update"
                                             className="h-24 sm:h-32 w-full border border-gray-300/50"
                                             placeholder="Tell us about your present condition..."
-                                            name='reason'
+                                            name={'reason'}
                                         />
                                         <Button type='submit' className={`w-full`}>
                                             <Pencil size={16} />

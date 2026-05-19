@@ -1,6 +1,6 @@
 
 
-import { getAptById } from '@/lib/data';
+import { getAptById } from '@/app/lib/data';
 import { Button } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';

@@ -1,9 +1,9 @@
 
 import DoctorCard from '@/components/cards/DoctorCard';
-import { getDoctors } from '@/lib/data';
 import React from 'react';
 import SearchField from '@/components/ui/Search';
 import Empty from '@/components/empty-field/Empty';
+import { getDoctors } from '../lib/data';
 
 const AllAppointments = async ({ searchParams }) => {
     const { search = '' } = await searchParams

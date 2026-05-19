@@ -39,7 +39,7 @@ const DashboardPage = ({ bookings }) => {
                                         <p className='text-sm'>{bookings.length} appointment</p>
                                     </div>
 
-                                    <div className="user-bookings grid grid-cols-1 gap-4 md:grid-cols-3">
+                                    <div className="user-bookings grid grid-cols-1 gap-4 lg:grid-cols-3">
                                         {
                                             bookings.map((booking, i) => <BookingCard key={i} booking={booking}></BookingCard>)
                                         }

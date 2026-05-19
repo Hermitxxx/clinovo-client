@@ -1,5 +1,5 @@
+import { getTopDoctors } from '@/app/lib/data';
 import DoctorCard from '@/components/cards/DoctorCard';
-import { getTopDoctors } from '@/lib/data';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
