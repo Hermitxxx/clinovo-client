@@ -6,23 +6,6 @@ import { Button, FieldError, Form, Input, Label, TextArea, TextField } from '@he
 import { headers } from 'next/headers';
 import React from 'react';
 
-// {
-//         "id": "d1",
-//         "name": "Dr. James Carter",
-//         "specialty": "Cardiologist",
-//         "image": "https://media.istockphoto.com/id/912135044/photo/he-is-king-of-the-hospital.jpg?s=1024x1024&w=is&k=20&c=1i221torDS3Iv8e5gMb05-ff2LwfFP3DvdjmWUFxDEc=",
-//         "experience": "10 years",
-//         "availability": [
-//             "09:00 AM - 12:00 PM",
-//             "04:00 PM - 07:00 PM"
-//         ],
-//         "description": "Experienced cardiologist specializing in heart diseases, preventive care, and hypertension management.",
-//         "hospital": "St. Thomas Heart Center",
-//         "location": "Los Angeles, California",
-//         "fee": 800,
-//         "rating": 4.7
-//     }
-
 const BookApt = async ({ params }) => {
     const { id } = await params
 
