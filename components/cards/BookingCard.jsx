@@ -1,8 +1,7 @@
 // components/BookingCard.jsx
 
-import { Button } from "@heroui/react";
-import { Pencil, Trash2 } from "lucide-react";
 import { EditModal } from "../modal/EditModal";
+import { DeleteModal } from "../modal/DeleteModal";
 
 export default function BookingCard({ booking }) {
     console.log(booking._id);
@@ -41,10 +40,7 @@ export default function BookingCard({ booking }) {
                 <div className="flex items-center gap-2">
                     <EditModal booking={booking}></EditModal>
 
-                    <Button variant='danger'>
-                        <Trash2 size={16} />
-                        Delete
-                    </Button>
+                    <DeleteModal booking={booking}></DeleteModal>
                 </div>
             </div>
         </div>

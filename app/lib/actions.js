@@ -1,3 +1,4 @@
+import { FaUniversity } from "react-icons/fa";
 
 
 export async function postApt(bookingData) {
@@ -26,8 +27,18 @@ export async function updateUserApt(id, updatedData) {
 
     const data = await res.json()
     console.log(data);
-    // if (data.modifiedCount > 0) {
-    //     redirect('/dashboard')
-    // }
+    return data
+}
+
+export async function deleteAppointment(id) {
+    const res = await fetch(`http://localhost:5000/bookings/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+
+    const data = await res.json()
+    console.log(data);
     return data
 }
