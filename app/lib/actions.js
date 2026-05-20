@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+
 
 export async function postApt(bookingData) {
     const res = await fetch(`http://localhost:5000/bookings`, {
@@ -26,8 +26,8 @@ export async function updateUserApt(id, updatedData) {
 
     const data = await res.json()
     console.log(data);
-    if (data.modifiedCount > 0) {
-        redirect('/dashboard')
-    }
+    // if (data.modifiedCount > 0) {
+    //     redirect('/dashboard')
+    // }
     return data
 }

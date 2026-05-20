@@ -26,20 +26,14 @@ const HeroSection = () => {
                         Connect instantly with a 24x7 specialist or choose to video visit a particular doctor.
                     </p>
 
-                    <div className="cta flex flex-wrap items-center gap-4">
-                        <Link href={`/register`}>
-                            <button className='btn-primary'>
-                                Consult Now
-                            </button>
-                        </Link>
-
+                    <div className="cta">
                         <Link href={`/login`}>
                             <SecondaryButton>
                                 <button className="learn-more">
                                     <span className="circle" aria-hidden="true">
                                         <span className="icon arrow" />
                                     </span>
-                                    <span className="button-text">Learn More</span>
+                                    <span className="button-text">Consult Now</span>
                                 </button>
                             </SecondaryButton>
                         </Link>

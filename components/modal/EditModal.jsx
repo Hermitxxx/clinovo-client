@@ -3,7 +3,7 @@ import { updateUserApt } from "@/app/lib/actions";
 import { Envelope, Rocket } from "@gravity-ui/icons";
 import { Button, FieldError, Input, Label, Modal, TextArea, TextField } from "@heroui/react";
 import { Edit, Form, Pencil } from "lucide-react";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { MdUpdate } from "react-icons/md";
 
 export function EditModal({ booking }) {
@@ -25,10 +25,13 @@ export function EditModal({ booking }) {
 
     console.log(_id);
 
+    const router = useRouter()
+
     async function onSubmit(formData) {
         const updatedData = Object.fromEntries(formData.entries())
         console.log(updatedData);
         await updateUserApt(_id, updatedData)
+        router.refresh()
     }
 
     return (
@@ -125,7 +128,7 @@ export function EditModal({ booking }) {
                                             placeholder="Tell us about your present condition..."
                                             name={'reason'}
                                         />
-                                        <Button type='submit' className={`w-full`}>
+                                        <Button type='submit' slot="close" className={`w-full`}>
                                             <Pencil size={16} />
                                             Update
                                         </Button>
