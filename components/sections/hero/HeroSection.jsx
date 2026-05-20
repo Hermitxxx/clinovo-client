@@ -15,7 +15,9 @@ const HeroSection = () => {
                 fill
                 sizes='100vw'
             />
-            <div className="wrapper bg-blue-200/50 flex max-lg:flex-col max-lg:gap-10 gap-16 lg:gap-20 justify-between min-h-[calc(100vh-12rem)] rounded-lg max-lg:min-h-0 items-center overflow-hidden px-6 py-10 md:p-12">
+
+            <div className='w-full h-full absolute inset-0 object-cover bg-blue-200/30 -z-900'></div>
+            <div className="wrapper container mx-auto flex max-lg:flex-col max-lg:gap-10 gap-16 lg:gap-20 justify-between min-h-[calc(100vh-12rem)] rounded-lg max-lg:min-h-0 items-center overflow-hidden px-6 py-10 md:p-12">
                 <div className="intro space-y-7 sm:space-y-8 max-w-xl">
                     <h1 className='leading-16 max-sm:text-5xl max-sm:leading-tight'>
                         <span className='text-accent'>Doctor</span> <br />
