@@ -4,6 +4,8 @@ import Review from "@/components/sections/review/Review";
 import Services from "@/components/sections/services/Services";
 import TopDocs from "@/components/sections/top-doctors/TopDocs";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <>

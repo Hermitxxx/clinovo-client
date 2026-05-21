@@ -1,7 +1,7 @@
 
 
 export async function postApt(bookingData, token) {
-    const res = await fetch(`http://localhost:5000/bookings`, {
+    const res = await fetch(`${process.env.NEXT_SERVER}/bookings`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -17,7 +17,7 @@ export async function postApt(bookingData, token) {
 }
 
 export async function updateUserApt(id, updatedData, token) {
-    const res = await fetch(`http://localhost:5000/bookings/${id}`, {
+    const res = await fetch(`${process.env.NEXT_SERVER}/bookings/${id}`, {
         method: 'PATCH',
         headers: {
             'content-type': 'application/json',
@@ -32,7 +32,7 @@ export async function updateUserApt(id, updatedData, token) {
 }
 
 export async function deleteAppointment(id, token) {
-    const res = await fetch(`http://localhost:5000/bookings/${id}`, {
+    const res = await fetch(`${process.env.NEXT_SERVER}/bookings/${id}`, {
         method: 'DELETE',
         headers: {
             'content-type': 'application/json',

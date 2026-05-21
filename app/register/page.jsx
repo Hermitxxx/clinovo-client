@@ -35,7 +35,7 @@ export default function Register() {
             });
 
             toast.success('Successfully registered!', {
-                position: 'top-right'
+                position: 'top-left'
             });
 
             return
@@ -43,7 +43,7 @@ export default function Register() {
 
         if (error) {
             toast.error(`${error.message}`, {
-                position: 'top-right'
+                position: 'top-left'
             });
         }
 
@@ -54,7 +54,7 @@ export default function Register() {
             provider: "google",
         });
         toast.success('Successfully registered!', {
-            position: 'top-right'
+            position: 'top-left'
         });
     };
 

@@ -50,7 +50,7 @@ export default function Login() {
         });
 
         toast.success('Login successful!', {
-            position: 'top-right',
+            position: 'top-left',
             duration: 2000
         });
     };

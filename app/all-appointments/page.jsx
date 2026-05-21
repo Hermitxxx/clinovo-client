@@ -7,6 +7,11 @@ import { getDoctors } from '../lib/data';
 import { auth } from '../lib/auth';
 import { headers } from 'next/headers';
 
+export const metadata = {
+    title: 'Clinovo - All Appointments',
+    description: 'Find all our cares here'
+}
+
 const AllAppointments = async ({ searchParams }) => {
     const { search = '' } = await searchParams
     const searchValue = String(search).toLowerCase()

@@ -16,7 +16,7 @@ export function DeleteModal({ booking }) {
         await deleteAppointment(_id, token)
         router.refresh()
         toast.error('Appointment deleted!', {
-            position: 'top-right',
+            position: 'top-left',
             duration: 3000
         })
     }

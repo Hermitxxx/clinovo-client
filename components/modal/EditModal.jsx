@@ -36,7 +36,7 @@ export function EditModal({ booking }) {
         await updateUserApt(_id, updatedData, token)
         router.refresh()
         toast.success('Appointment updated!', {
-            position: 'top-right',
+            position: 'top-left',
             duration: 3000
         })
 

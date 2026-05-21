@@ -31,7 +31,7 @@ const BookAptClient = ({ apt, session, id, token }) => {
 
         await postApt(bookingData, token)
         toast.success('Appointment booked!', {
-            position: 'top-right',
+            position: 'top-left',
             duration: 3000
         })
         router.push('/dashboard')
