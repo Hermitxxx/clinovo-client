@@ -38,7 +38,7 @@ const SearchField = ({ searchValue }) => {
             </div>
 
             <div>
-                <Button variant='outline' onClick={updateParam} className="btn-outline whitespace-nowrap tracking-tighter max-sm:text-xs font-thin max-sm:p-3 py-2.5">
+                <Button variant='outline' onClick={updateParam} className="btn-outline whitespace-nowrap tracking-tighter max-sm:text-sm font-thin max-sm:p-3 py-3">
                     Search
                 </Button>
 

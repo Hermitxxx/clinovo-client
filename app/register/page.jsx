@@ -25,6 +25,12 @@ export default function Register() {
         console.log(error);
     }
 
+    const signIn = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
+    };
+
     return (
         <>
             <div className='w-11/12 mx-auto my-16 min-h-[calc(100vh-20rem)] flex flex-col items-center justify-center'>
@@ -82,9 +88,9 @@ export default function Register() {
                     </div>
 
                     <div className='space-y-1'>
-                        <Button className="w-full" variant="tertiary">
+                        <Button onClick={signIn} className="w-full" variant="tertiary">
                             <Icon icon="devicon:google" />
-                            Sign up with Google
+                            Sign in with Google
                         </Button>
                         <p className='text-sm text-center'>
                             Already have an account ? <Link href={`/login`} className='text-primary'>Log in</Link>

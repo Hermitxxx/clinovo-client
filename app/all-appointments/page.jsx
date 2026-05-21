@@ -4,12 +4,24 @@ import React from 'react';
 import SearchField from '@/components/ui/Search';
 import Empty from '@/components/empty-field/Empty';
 import { getDoctors } from '../lib/data';
+import { auth } from '../lib/auth';
+import { headers } from 'next/headers';
 
 const AllAppointments = async ({ searchParams }) => {
     const { search = '' } = await searchParams
-
     const searchValue = String(search).toLowerCase()
-    const allDocs = await getDoctors()
+
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
+
+    const authHeader = {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    }
+
+    const allDocs = await getDoctors(authHeader)
 
     const filteredArr = allDocs.filter(doc => {
         const matchesSearch = doc.specialty.toLowerCase().includes(searchValue) || doc.name.toLowerCase().includes(searchValue)

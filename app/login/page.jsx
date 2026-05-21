@@ -25,6 +25,12 @@ export default function Login() {
         console.log(error);
     }
 
+    const signIn = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
+    };
+
     return (
         <>
             <div className='w-11/12 mx-auto my-16 min-h-[calc(100vh-20rem)] flex flex-col items-center justify-center'>
@@ -73,7 +79,7 @@ export default function Login() {
                     </div>
 
                     <div className='space-y-1'>
-                        <Button className="w-full" variant="tertiary">
+                        <Button onClick={signIn} className="w-full" variant="tertiary">
                             <Icon icon="devicon:google" />
                             Sign in with Google
                         </Button>

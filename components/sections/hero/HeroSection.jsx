@@ -29,7 +29,7 @@ const HeroSection = () => {
                     </p>
 
                     <div className="cta">
-                        <Link href={`/login`}>
+                        <Link href={`/all-appointments`}>
                             <SecondaryButton>
                                 <button className="learn-more">
                                     <span className="circle" aria-hidden="true">

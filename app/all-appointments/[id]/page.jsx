@@ -1,7 +1,9 @@
 
 
+import { auth } from '@/app/lib/auth';
 import { getAptById } from '@/app/lib/data';
 import { Button } from '@heroui/react';
+import { headers } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -9,7 +11,17 @@ import React from 'react';
 const DoctorDetails = async ({ params }) => {
     const { id } = await params;
 
-    const apt = await getAptById(id);
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
+
+    const authHeader = {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    }
+
+    const apt = await getAptById(id, authHeader);
     const {
         name,
         image,
@@ -22,7 +34,9 @@ const DoctorDetails = async ({ params }) => {
         rating,
         availability = [],
     } = apt ?? {};
+
     const formattedFee = `$${fee}`;
+
     const rows = [
         ['Specialty', specialty],
         ['Experience', experience],

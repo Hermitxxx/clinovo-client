@@ -1,11 +1,10 @@
-import { FaUniversity } from "react-icons/fa";
 
-
-export async function postApt(bookingData) {
+export async function postApt(bookingData, token) {
     const res = await fetch(`http://localhost:5000/bookings`, {
         method: 'POST',
         headers: {
-            'content-type': 'application/json'
+            'content-type': 'application/json',
+            authorization: `Bearer ${token}`
         },
         body: JSON.stringify(bookingData)
     })
@@ -16,11 +15,12 @@ export async function postApt(bookingData) {
 
 }
 
-export async function updateUserApt(id, updatedData) {
+export async function updateUserApt(id, updatedData, token) {
     const res = await fetch(`http://localhost:5000/bookings/${id}`, {
         method: 'PATCH',
         headers: {
-            'content-type': 'application/json'
+            'content-type': 'application/json',
+            authorization: `Bearer ${token}`
         },
         body: JSON.stringify(updatedData)
     })
@@ -30,11 +30,12 @@ export async function updateUserApt(id, updatedData) {
     return data
 }
 
-export async function deleteAppointment(id) {
+export async function deleteAppointment(id, token) {
     const res = await fetch(`http://localhost:5000/bookings/${id}`, {
         method: 'DELETE',
         headers: {
-            'content-type': 'application/json'
+            'content-type': 'application/json',
+            authorization: `Bearer ${token}`
         }
     })
 

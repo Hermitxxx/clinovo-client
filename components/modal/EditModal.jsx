@@ -1,5 +1,6 @@
-
+'use client'
 import { updateUserApt } from "@/app/lib/actions";
+import { authClient } from "@/app/lib/auth-client";
 import { Envelope, Rocket } from "@gravity-ui/icons";
 import { Button, FieldError, Input, Label, Modal, TextArea, TextField } from "@heroui/react";
 import { Edit, Form, Pencil } from "lucide-react";
@@ -23,14 +24,15 @@ export function EditModal({ booking }) {
         bookingFee,
     } = booking;
 
-    console.log(_id);
-
     const router = useRouter()
 
-    async function onSubmit(formData) {
+    async function onSubmit(e) {
+        e.preventDefault()
+        const { data, error } = await authClient.token()
+        const token = data?.token
+        const formData = new FormData(e.target)
         const updatedData = Object.fromEntries(formData.entries())
-        console.log(updatedData);
-        await updateUserApt(_id, updatedData)
+        await updateUserApt(_id, updatedData, token)
         router.refresh()
     }
 
@@ -53,7 +55,7 @@ export function EditModal({ booking }) {
                                 </Modal.Heading>
                             </Modal.Header>
                             <Modal.Body style={{ zIndex: 2000 }}>
-                                <form action={onSubmit} className='w-full mx-auto border p-2 sm:p-6 rounded-lg h-full'>
+                                <form onSubmit={onSubmit} className='w-full mx-auto border p-2 sm:p-6 rounded-lg h-full'>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                         <TextField
                                             name={'docName'}

@@ -13,9 +13,17 @@ const Dashboard = async () => {
 
     const userId = session?.user?.id
 
-    const bookings = await getBookingByUserId(userId)
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
 
-    console.log(bookings, ' bookings');
+    const authHeader = {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    }
+
+    const bookings = await getBookingByUserId(userId, authHeader)
 
     return (
         <DashboardPage bookings={bookings}></DashboardPage>

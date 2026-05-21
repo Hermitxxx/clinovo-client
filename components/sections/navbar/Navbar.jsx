@@ -4,7 +4,7 @@ import Link from 'next/link';
 import NavLink from './NavLink';
 import Image from 'next/image';
 import logo from '@/public/assets/logo.svg'
-import { Avatar, Button } from '@heroui/react';
+import { Avatar, Button, Spinner } from '@heroui/react';
 import { useRouter } from 'next/navigation';
 import { authClient } from '@/app/lib/auth-client';
 
@@ -48,22 +48,40 @@ const Navbar = () => {
                         <NavLink href={`/all-appointments`}>
                             <li>All Appointments</li>
                         </NavLink>
-                        <NavLink href={`/dashboard`}>
-                            <li>Dashboard</li>
-                        </NavLink>
+                        {
+                            session ?
+                                <>
+                                    <NavLink href={`/dashboard`}>
+                                        <li>Dashboard</li>
+                                    </NavLink>
+                                </> :
+                                <>
+                                </>
+                        }
                     </ul>
                 </div>
 
                 <div className="button flex-center gap-2">
                     {
                         session ?
-                            <>
-                                <Avatar>
-                                    <Avatar.Image alt="John Doe" src={session?.image ? `${session?.image}` : 'https://robohash.org/utquibusdamquod.png?size=250x250&set=set1'} />
-                                    <Avatar.Fallback>JD</Avatar.Fallback>
-                                </Avatar>
-                                <Button onClick={handleLogout} variant='danger'>Logout</Button>
-                            </> :
+                            isPending ?
+                                <>
+                                    <Button isPending>
+                                        {({ isPending }) => (
+                                            <>
+                                                {isPending ? <Spinner color="current" size="sm" /> : null}
+                                                Loading...
+                                            </>
+                                        )}
+                                    </Button>
+                                </> :
+                                <>
+                                    <Avatar>
+                                        <Avatar.Image alt="John Doe" src={session?.image ? `${session?.image}` : 'https://robohash.org/utquibusdamquod.png?size=250x250&set=set1'} />
+                                        <Avatar.Fallback>JD</Avatar.Fallback>
+                                    </Avatar>
+                                    <Button onClick={handleLogout} variant='danger'>Logout</Button>
+                                </> :
                             <>
                                 <Link href={`/register`} className='hidden md:flex'>
                                     <Button>Register</Button>

@@ -1,11 +1,22 @@
+import { auth } from '@/app/lib/auth';
 import { getTopDoctors } from '@/app/lib/data';
 import DoctorCard from '@/components/cards/DoctorCard';
 import { ArrowRight } from 'lucide-react';
+import { headers } from 'next/headers';
 import Link from 'next/link';
 import React from 'react';
 
 const TopDocs = async () => {
-    const topDocs = await getTopDoctors()
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
+
+    const authHeader = {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    }
+    const topDocs = await getTopDoctors(authHeader)
 
     return (
         <section>

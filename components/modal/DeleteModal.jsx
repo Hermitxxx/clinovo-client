@@ -1,5 +1,6 @@
 'use client'
 import { deleteAppointment } from "@/app/lib/actions";
+import { authClient } from "@/app/lib/auth-client";
 import { AlertDialog, Button } from "@heroui/react";
 import { Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -9,7 +10,9 @@ export function DeleteModal({ booking }) {
     const router = useRouter()
 
     async function handleDelete() {
-        await deleteAppointment(_id)
+        const { data, error } = await authClient.token()
+        const token = data?.token
+        await deleteAppointment(_id, token)
         router.refresh()
     }
     return (

@@ -4,7 +4,6 @@ import { EditModal } from "../modal/EditModal";
 import { DeleteModal } from "../modal/DeleteModal";
 
 export default function BookingCard({ booking }) {
-    console.log(booking._id);
     return (
         <div className="w-full rounded-2xl border border-black/5 bg-white p-5 shadow-sm transition hover:shadow-md">
             {/* Top */}

@@ -9,7 +9,18 @@ import React from 'react';
 const BookApt = async ({ params }) => {
     const { id } = await params
 
-    const apt = await getAptById(id)
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
+
+    const authHeader = {
+        headers: {
+            'content-type': 'application/json',
+            authorization: `Bearer ${token}`
+        }
+    }
+
+    const apt = await getAptById(id, authHeader)
 
     const { name: docName, specialty, fee } = apt
     // get users session
@@ -18,7 +29,6 @@ const BookApt = async ({ params }) => {
     })
 
     const user = session?.user
-    console.log(user);
 
     async function onSubmit(formData) {
         'use server'
@@ -38,7 +48,7 @@ const BookApt = async ({ params }) => {
             bookingFee: fee
         }
 
-        await postApt(bookingData)
+        await postApt(bookingData, token)
 
     }
     return (
