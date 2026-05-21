@@ -7,16 +7,7 @@ import Link from 'next/link';
 import React from 'react';
 
 const TopDocs = async () => {
-    const { token } = await auth.api.getToken({
-        headers: await headers()
-    })
-
-    const authHeader = {
-        headers: {
-            authorization: `Bearer ${token}`
-        }
-    }
-    const topDocs = await getTopDoctors(authHeader)
+    const topDocs = await getTopDoctors()
 
     return (
         <section>

@@ -43,7 +43,7 @@ const HeroSection = () => {
                 </div>
 
                 <div className="doctor relative mx-auto w-80 h-80 sm:w-96 sm:h-96 lg:w-115 lg:h-115 shrink-0">
-                    <div className="absolute inset-0 bg-primary/80 rounded-full" />
+                    <div className="absolute inset-0 bg-primary rounded-full" />
                     <Image
                         className='relative z-10 -bottom-12 block w-full h-full object-contain'
                         src={doctor}

@@ -1,5 +1,6 @@
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
+import { Toaster } from 'react-hot-toast';
 import Navbar from "@/components/sections/navbar/Navbar";
 import Footer from "@/components/sections/footer/Footer";
 
@@ -21,9 +22,10 @@ export default function RootLayout({ children }) {
       className={`${dm_sans.variable} h-full antialiased`}
     >
       <body className={`min-h-full bg-bg-secondary flex flex-col ${dm_sans.className}`}>
-        <Navbar></Navbar>
+        <Navbar />
+        <Toaster />
         {children}
-        <Footer></Footer>
+        <Footer />
       </body>
     </html>
   );

@@ -16,7 +16,7 @@ const Navbar = () => {
         await authClient.signOut({
             fetchOptions: {
                 onSuccess: () => {
-                    router.push("/login"); // redirect to login page
+                    router.push("/"); // redirect to login page
                 },
             },
         });
@@ -31,14 +31,16 @@ const Navbar = () => {
 
     // console.log(session);
     return (
-        <header className='sticky top-0 z-500 w-full bg-bg-secondary border-b border-gray-200'>
+        <header className='sticky top-0 z-1000 w-full bg-bg-secondary border-b border-gray-200'>
             <nav className='navbar w-11/12 mx-auto flex-between py-4 bg-bg-secondary'>
-                <div className="logo flex-center gap-1">
-                    <Image src={logo} width={44} height={44} alt='Clinovo'></Image>
-                    <div>
-                        <p className='text-xl'><span className='text-primary font-bold'>Clin</span><span className='text-text font-bold'>ovo</span></p>
+                <Link className='cursor-pointer' href={`/`}>
+                    <div className="logo flex-center gap-1">
+                        <Image src={logo} width={44} height={44} alt='Clinovo'></Image>
+                        <div>
+                            <p className='text-xl'><span className='text-primary font-bold'>Clin</span><span className='text-text font-bold'>ovo</span></p>
+                        </div>
                     </div>
-                </div>
+                </Link>
 
                 <div className="nav-links hidden md:flex">
                     <ul className='flex-between gap-8'>
@@ -107,21 +109,52 @@ const Navbar = () => {
 
             {
                 menuOpen && (
-                    <div className="md:hidden z-500 w-full border-t border-gray-200 bg-bg-secondary p-5 flex flex-col gap-4 text-sm">
+                    <div className="md:hidden z-1000 w-full border-t border-gray-200 bg-bg-secondary p-5 flex flex-col gap-4 text-sm">
                         <ul className="flex flex-col gap-3">
-                            <li><Link href={"/"} onClick={() => setMenuOpen(false)} className="nav-link">Home</Link></li>
-                            <li><Link href={"/all-tiles"} onClick={() => setMenuOpen(false)} className="nav-link">All Appointments</Link></li>
-                            <li><Link href={"/profile"} onClick={() => setMenuOpen(false)} className="nav-link">Dashboard</Link></li>
+                            <NavLink onClick={() => setMenuOpen(false)} href={`/`}>
+                                <li>Home</li>
+                            </NavLink>
+                            <NavLink onClick={() => setMenuOpen(false)} href={`/all-appointments`}>
+                                <li>All Appointments</li>
+                            </NavLink>
+                            {
+                                session ?
+                                    <>
+                                        <NavLink onClick={() => setMenuOpen(false)} href={`/dashboard`}>
+                                            <li>Dashboard</li>
+                                        </NavLink>
+                                    </> :
+                                    <>
+                                    </>
+                            }
                         </ul>
                         <div className="flex items-center gap-3">
-                            <>
-                                <Link href={"/register"} onClick={() => setMenuOpen(false)}>
-                                    <Button>Register</Button>
-                                </Link>
-                                <Link href={"/login"} onClick={() => setMenuOpen(false)}>
-                                    <Button className={`btn-outline`} variant='outline'>Login</Button>
-                                </Link>
-                            </>
+                            {
+                                session ?
+                                    isPending ?
+                                        <>
+                                            <Button isPending>
+                                                {({ isPending }) => (
+                                                    <>
+                                                        {isPending ? <Spinner color="current" size="sm" /> : null}
+                                                        Loading...
+                                                    </>
+                                                )}
+                                            </Button>
+                                        </> :
+                                        <>
+                                            <Button onClick={handleLogout} variant='danger'>Logout</Button>
+                                        </> :
+                                    <>
+                                        <Link href={`/register`} className='hidden md:flex'>
+                                            <Button>Register</Button>
+                                        </Link>
+
+                                        <Link href={`/login`} className='hidden md:flex'>
+                                            <Button className={`btn-outline`} variant='outline'>Login</Button>
+                                        </Link>
+                                    </>
+                            }
                         </div>
                     </div >
                 )

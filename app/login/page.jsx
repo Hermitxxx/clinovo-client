@@ -5,6 +5,7 @@ import { Button, Description, FieldError, Form, Input, Label, TextField } from "
 import { Icon } from '@iconify/react';
 import Link from 'next/link';
 import { authClient } from '../lib/auth-client';
+import toast from 'react-hot-toast';
 
 export default function Login() {
     async function onSubmit(e) {
@@ -21,6 +22,22 @@ export default function Login() {
             callbackURL: "/",
         });
 
+        if (data) {
+            toast.success('Login successful!', {
+                position: 'top-right',
+                duration: 4000
+            });
+
+            return
+        }
+
+        if (error) {
+            toast.error(`${error.message}`, {
+                position: 'top-right',
+                duration: 2000
+            });
+        }
+
         console.log(data);
         console.log(error);
     }
@@ -28,6 +45,11 @@ export default function Login() {
     const signIn = async () => {
         const data = await authClient.signIn.social({
             provider: "google",
+        });
+
+        toast.success('Login successful!', {
+            position: 'top-right',
+            duration: 2000
         });
     };
 

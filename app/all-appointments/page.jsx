@@ -11,17 +11,7 @@ const AllAppointments = async ({ searchParams }) => {
     const { search = '' } = await searchParams
     const searchValue = String(search).toLowerCase()
 
-    const { token } = await auth.api.getToken({
-        headers: await headers()
-    })
-
-    const authHeader = {
-        headers: {
-            authorization: `Bearer ${token}`
-        }
-    }
-
-    const allDocs = await getDoctors(authHeader)
+    const allDocs = await getDoctors()
 
     const filteredArr = allDocs.filter(doc => {
         const matchesSearch = doc.specialty.toLowerCase().includes(searchValue) || doc.name.toLowerCase().includes(searchValue)

@@ -5,8 +5,11 @@ import { Button, Description, FieldError, Form, Input, Label, TextField } from "
 import { Icon } from '@iconify/react';
 import Link from 'next/link';
 import { authClient } from '../lib/auth-client';
+import { useRouter } from 'next/navigation';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Register() {
+    const router = useRouter()
     async function onSubmit(e) {
         e.preventDefault()
         const formData = new FormData(e.target)
@@ -21,13 +24,36 @@ export default function Register() {
             callbackURL: "/",
         });
 
-        console.log(data);
-        console.log(error);
+        if (data) {
+            await authClient.signOut({
+                fetchOptions: {
+                    onSuccess: () => {
+                        router.push("/login"); // redirect to login page
+                    },
+                },
+            });
+
+            toast.success('Successfully registered!', {
+                position: 'top-right'
+            });
+
+            return
+        }
+
+        if (error) {
+            toast.error(`${error.message}`, {
+                position: 'top-right'
+            });
+        }
+
     }
 
     const signIn = async () => {
         const data = await authClient.signIn.social({
             provider: "google",
+        });
+        toast.success('Successfully registered!', {
+            position: 'top-right'
         });
     };
 

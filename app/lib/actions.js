@@ -1,4 +1,5 @@
 
+
 export async function postApt(bookingData, token) {
     const res = await fetch(`http://localhost:5000/bookings`, {
         method: 'POST',

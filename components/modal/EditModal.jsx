@@ -5,6 +5,7 @@ import { Envelope, Rocket } from "@gravity-ui/icons";
 import { Button, FieldError, Input, Label, Modal, TextArea, TextField } from "@heroui/react";
 import { Edit, Form, Pencil } from "lucide-react";
 import { redirect, useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 import { MdUpdate } from "react-icons/md";
 
 export function EditModal({ booking }) {
@@ -34,6 +35,11 @@ export function EditModal({ booking }) {
         const updatedData = Object.fromEntries(formData.entries())
         await updateUserApt(_id, updatedData, token)
         router.refresh()
+        toast.success('Appointment updated!', {
+            position: 'top-right',
+            duration: 3000
+        })
+
     }
 
     return (

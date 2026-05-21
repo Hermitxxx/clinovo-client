@@ -4,6 +4,7 @@ import { authClient } from "@/app/lib/auth-client";
 import { AlertDialog, Button } from "@heroui/react";
 import { Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export function DeleteModal({ booking }) {
     const { _id, docName } = booking
@@ -14,6 +15,10 @@ export function DeleteModal({ booking }) {
         const token = data?.token
         await deleteAppointment(_id, token)
         router.refresh()
+        toast.error('Appointment deleted!', {
+            position: 'top-right',
+            duration: 3000
+        })
     }
     return (
         <AlertDialog style={{ zIndex: 2000 }}>
