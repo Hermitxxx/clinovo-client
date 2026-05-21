@@ -21,6 +21,7 @@ const BookApt = async ({ params }) => {
 
     const apt = await getAptById(id, authHeader)
 
+    console.log(apt);
     // get users session
     const session = await auth.api.getSession({
         headers: await headers() // you need to pass the headers object.
