@@ -15,10 +15,11 @@ export default function Register() {
         const formData = new FormData(e.target)
         const userData = Object.fromEntries(formData.entries())
 
-        const { name, email, password } = userData
+        const { name, image, email, password } = userData
 
         const { data, error } = await authClient.signUp.email({
             name: name, // required
+            image: image,
             email: email, // required
             password: password, // required
             callbackURL: "/",
@@ -73,6 +74,16 @@ export default function Register() {
                     >
                         <Label>Name</Label>
                         <Input placeholder="Jonh Doe" />
+                    </TextField>
+
+                    <TextField
+                        isRequired
+                        name="image"
+                        type="url"
+                    >
+                        <Label>Image Url</Label>
+                        <Input placeholder="https://exampleurl.com" />
+                        <FieldError />
                     </TextField>
 
                     <TextField

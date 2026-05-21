@@ -6,8 +6,10 @@ import { Icon } from '@iconify/react';
 import Link from 'next/link';
 import { authClient } from '../lib/auth-client';
 import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 export default function Login() {
+    const router = useRouter()
     async function onSubmit(e) {
         e.preventDefault()
         const formData = new FormData(e.target)
@@ -19,13 +21,13 @@ export default function Login() {
             name: name, // required
             email: email, // required
             password: password, // required
-            callbackURL: "/",
         });
 
         if (data) {
+            router.push('/')
             toast.success('Login successful!', {
-                position: 'top-right',
-                duration: 4000
+                position: 'top-left',
+                duration: 3000
             });
 
             return
@@ -33,7 +35,7 @@ export default function Login() {
 
         if (error) {
             toast.error(`${error.message}`, {
-                position: 'top-right',
+                position: 'top-left',
                 duration: 2000
             });
         }

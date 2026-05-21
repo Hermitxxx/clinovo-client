@@ -1,5 +1,7 @@
+'use client'
 import ServiceCard from '@/components/cards/ServiceCard';
 import React from 'react';
+import { motion } from "framer-motion";
 
 const services = [
     {
@@ -36,7 +38,12 @@ const services = [
 
 const Services = () => {
     return (
-        <section className='services'>
+        <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.8 }}
+            className='services'>
             <div className="section-heading">
                 <p className='font-medium'>
                     Services
@@ -51,7 +58,7 @@ const Services = () => {
                     services.map(service => <ServiceCard key={service.id} service={service}></ServiceCard>)
                 }
             </div>
-        </section>
+        </motion.section>
     );
 };
 

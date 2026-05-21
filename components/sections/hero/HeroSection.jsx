@@ -1,13 +1,20 @@
+"use client";
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import doctor from '@/public/assets/doctor.svg'
 import SecondaryButton from '@/components/ui/btn/SecondaryButton';
 import heroBg from '@/public/assets/hero-bg.svg'
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
     return (
-        <section className='relative w-full overflow-hidden mt-0'>
+        <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.8 }}
+            className='relative w-full overflow-hidden mt-0'>
             <Image
                 className='absolute inset-0 -z-1000 object-cover'
                 src={heroBg}
@@ -53,7 +60,7 @@ const HeroSection = () => {
                 </div>
             </div>
 
-        </section>
+        </motion.section>
     );
 };
 

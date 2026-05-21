@@ -29,6 +29,8 @@ const Navbar = () => {
         refetch //refetch the session
     } = authClient.useSession()
 
+    const user = session?.user
+
     // console.log(session);
     return (
         <header className='sticky top-0 z-1000 w-full bg-bg-secondary border-b border-gray-200'>
@@ -79,7 +81,7 @@ const Navbar = () => {
                                 </> :
                                 <>
                                     <Avatar>
-                                        <Avatar.Image alt="John Doe" src={session?.image ? `${session?.image}` : 'https://robohash.org/utquibusdamquod.png?size=250x250&set=set1'} />
+                                        <Avatar.Image alt={user.name} src={user?.image ? `${user?.image}` : 'https://robohash.org/utquibusdamquod.png?size=250x250&set=set1'} />
                                         <Avatar.Fallback>JD</Avatar.Fallback>
                                     </Avatar>
                                     <Button onClick={handleLogout} variant='danger'>Logout</Button>
@@ -146,11 +148,11 @@ const Navbar = () => {
                                             <Button onClick={handleLogout} variant='danger'>Logout</Button>
                                         </> :
                                     <>
-                                        <Link href={`/register`} className='hidden md:flex'>
+                                        <Link href={`/register`} className='inline-block sm:hidden'>
                                             <Button>Register</Button>
                                         </Link>
 
-                                        <Link href={`/login`} className='hidden md:flex'>
+                                        <Link href={`/login`} className='inline-block sm:hidden'>
                                             <Button className={`btn-outline`} variant='outline'>Login</Button>
                                         </Link>
                                     </>

@@ -1,13 +1,19 @@
+'use client'
 import Image from 'next/image';
 import React from 'react';
 import review from '@/public/assets/review.svg'
 import { Button } from '@heroui/react';
 import { Mail, MapPin } from 'lucide-react';
-import { Envelope } from '@gravity-ui/icons';
+import { motion } from "framer-motion";
 
 const Review = () => {
     return (
-        <section className="py-12">
+        <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.8 }}
+            className="py-12">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                     <div className="md:col-span-6">
@@ -35,7 +41,7 @@ const Review = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 };
 

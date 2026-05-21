@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import logo from '@/public/assets/logo.svg'
 import {
@@ -13,10 +14,16 @@ import {
     FaTwitter
 } from 'react-icons/fa';
 import Image from 'next/image';
+import { motion } from "framer-motion";
 
 const Footer = () => {
     return (
-        <footer className="border-t border-base-300 mt-12">
+        <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.8 }}
+            className="border-t border-base-300 mt-12">
 
             <div className="container mx-auto px-6 pt-12 pb-8">
 
@@ -133,7 +140,7 @@ const Footer = () => {
                 </div>
 
             </div>
-        </footer>
+        </motion.section>
     );
 };
 

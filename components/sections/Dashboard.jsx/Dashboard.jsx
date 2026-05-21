@@ -1,11 +1,22 @@
 'use client'
+import { authClient } from '@/app/lib/auth-client';
 import BookingCard from '@/components/cards/BookingCard';
-import { Button } from '@heroui/react';
+import { UpdateProfile } from '@/components/modal/ProfileUpdate';
+import { Avatar, Button } from '@heroui/react';
 import { FileText } from 'lucide-react';
+import Image from 'next/image';
 import React, { useState } from 'react';
 
 const DashboardPage = ({ bookings }) => {
     const [state, setState] = useState('bookings')
+    const {
+        data: session,
+        isPending, //loading state
+        error, //error object
+        refetch //refetch the session
+    } = authClient.useSession()
+
+    const user = session?.user
     return (
         <section className='dahsboard'>
             <div className="section-heading space-y-3">
@@ -49,7 +60,26 @@ const DashboardPage = ({ bookings }) => {
                     </> :
                     <>
                         <div className="profile min-h-[calc(100vh-12rem)]">
-                            <h2>Your Profile</h2>
+                            <h2 className='mb-5'>Your Profile</h2>
+
+                            <div className='flex-center'>
+                                <div className='profile-card rounded-lg shadow-md shadow-primary/40 border border-primary/60 p-10 relative'>
+                                    <Avatar className="size-16">
+                                        <Avatar.Image alt={user.name} src={user?.image ? `${user?.image}` : 'https://robohash.org/utquibusdamquod.png?size=250x250&set=set1'} />
+                                        <Avatar.Fallback>JD</Avatar.Fallback>
+                                    </Avatar>
+
+                                    <div className='user-info my-5 space-y-2'>
+                                        <h2 className='text-2xl'>
+                                            Name : {user.name}
+                                        </h2>
+
+                                        <p className='font-bold'>Email : {user.email}</p>
+                                    </div>
+
+                                    <UpdateProfile></UpdateProfile>
+                                </div>
+                            </div>
                         </div>
                     </>
             }
